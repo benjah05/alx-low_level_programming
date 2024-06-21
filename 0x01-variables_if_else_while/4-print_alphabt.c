@@ -12,6 +12,5 @@ int main(void)
 		if (alphabt != 'e')
 			putchar(alphabt);
 	}
-	printf("\n");
 	return (0);
 }

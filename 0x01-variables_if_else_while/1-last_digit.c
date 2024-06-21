@@ -10,12 +10,12 @@
 int main(void)
 {
 	int n;
+	int remainder;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 	/* your code goes there */
-	int remainder = n % 10;
-
+	remainder = n % 10;
 	if (remainder > 5)
 		puts("Last digit of %d is %d and is greater than 5 and not 0\n", n, remainder);
 	else if (remainder == 0)
