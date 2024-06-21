@@ -10,7 +10,8 @@ int main(void)
 	for (alphabt = 'a'; alphabt <= 'z'; alphabt++)
 	{
 		if (alphabt != 'e')
-			putchar("%c", alphabt);
+			putchar(alphabt);
 	}
+	printf("\n");
 	return (0);
 }

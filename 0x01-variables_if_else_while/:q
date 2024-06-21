@@ -12,6 +12,5 @@ int main(void)
 		putchar(alphABET);
 	for (alphABET = 'A'; alphABET <= 'Z'; alphABET++)
 		putchar(alphABET);
-	printf("\n");
 	return (0);
 }
