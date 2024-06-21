@@ -13,6 +13,6 @@ int main(void)
 		if (alphabt != 'e')
 			putchar(alphabt);
 	}
-	printf("\n");
+	putchar('\n');
 	return (0);
 }
