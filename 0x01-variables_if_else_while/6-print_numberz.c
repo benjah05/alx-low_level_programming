@@ -1,14 +1,13 @@
 #include<stdio.h>
+#include<stdlib.h>
 /**
  * main - program entry point
  * Return: 0
  */
 int main(void)
 {
-	char alphabet;
-
-	for (alphabet = 'a'; alphabet <= 'z'; alphabet++)
-		putchar(alphabet);
+	for (int i = 0; i < 10; i++)
+		putchar('0' + i);
 	putchar('\n');
 	return (0);
 }

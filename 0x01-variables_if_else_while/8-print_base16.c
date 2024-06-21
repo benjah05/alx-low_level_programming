@@ -1,14 +1,15 @@
 #include<stdio.h>
+#include<stdlib.h>
 /**
  * main - program entry point
  * Return: 0
  */
 int main(void)
 {
-	char alphabet;
+	int hexa;
 
-	for (alphabet = 'a'; alphabet <= 'z'; alphabet++)
-		putchar(alphabet);
+	for (hexa = 0; hexa <= 15; hexa++)
+		putchar('a' + hexa);
 	putchar('\n');
 	return (0);
 }
