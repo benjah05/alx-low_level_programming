@@ -19,6 +19,8 @@ int main(void)
 				putchar(i + '0');
 				putchar(j + '0');
 			}
+			else 
+				continue
 			if (i != 8 && j != 9)
 			{
 				putchar(',');
@@ -29,7 +31,6 @@ int main(void)
 				j = (j + digit_jump) % 10;
 				digit_jump++;
 			}
-			j++;
 		}
 	}
 	return (0);

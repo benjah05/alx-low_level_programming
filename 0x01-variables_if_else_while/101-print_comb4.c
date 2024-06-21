@@ -17,6 +17,7 @@ int main(void)
 		while (j < 10)
 		{
 			while (k < 10)
+			{
 				if (i != j && i != k && j != k)
 				{
 					putchar(i + '0');
@@ -33,6 +34,7 @@ int main(void)
 					k = (k + digit_jump) % 10;
 					digit_jump++;
 				}
+			}
 			j++;
 		}
 	}
