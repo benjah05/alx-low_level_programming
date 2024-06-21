@@ -12,8 +12,8 @@ int main(void)
 	{
 		if (hexa < 10)
 			putchar(hexa + '0');
-		else if (hexa >= 10)
-			putchar('a' + hexa);
+		else
+			putchar('a' + (hexa - 10));
 	}
 	putchar('\n');
 	return (0);
