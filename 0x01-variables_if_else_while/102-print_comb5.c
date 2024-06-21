@@ -9,6 +9,8 @@ int main(void)
 {
 	int i;
 	int j;
+	int k;
+	int l;
 
 
 	for (i = 0; i < 9; i++)
@@ -24,9 +26,11 @@ int main(void)
 					putchar(' ');
 					putchar(k + '0');
 					putchar(j + '0');
-					if (i != 9 and j != 9)
+					if (i != 9 && j != 9)
+					{
 						putchar(',');
 						putchar(' ');
+					}
 				}
 			}
 		}
