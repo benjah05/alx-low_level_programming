@@ -23,13 +23,10 @@ int main(void)
 					putchar(',');
 					putchar(' ');
 				}
-		if (j == 9)
-		{
+			}
 			j = (j + digit_jump) % 10;
-			digit_jump++;
 		}
-
-		}
+		digit_jump++;
 
 	}
 	return (0);
