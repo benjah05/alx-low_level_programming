@@ -12,7 +12,7 @@ int main(void)
 	int n;
 
 
-	for (n = 100; n < 1000; n++)
+	for (n = 0; n < 1000; n++)
 	{
 		number_1 = n / 100;
 		number_2 = (n / 10) % 10;
