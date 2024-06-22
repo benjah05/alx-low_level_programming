@@ -8,14 +8,16 @@ int main(void)
 {
 	int i;
 	int j;
+	int k;
 
 
-	for (index = 0; index < 100; index++)
+	for (k = 0; k < 100; k++)
 	{
 		i = index / 10;
 		j = index % 10;
 
 		if (i < j)
+		{
 			putchar(i + '0');
 			putchar(j + '0');
 			if (i != 8 && j != 9)
@@ -23,6 +25,7 @@ int main(void)
 				putchar(',');
 				putchar(' ');
 			}
+		}
 	}
 	return (0);
 }
