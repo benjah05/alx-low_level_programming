@@ -6,26 +6,28 @@
  */
 int main(void)
 {
+	int number_1;
+	int number_2;
 	int i;
-	int j;
-	int k;
 
 
-	for (k = 0; k < 100; k++)
+	for (i = 0; i < 100; i++)
 	{
-		i = k / 10;
-		j = k % 10;
+		number_1 = i / 10;
+		number_2 = i % 10;
 
-		if (i < j)
+		if (number_1 < number_2)
 		{
-			putchar(i + '0');
-			putchar(j + '0');
-			if (k < 89)
+			putchar(number_1 + '0');
+			putchar(number_2 + '0');
+			if (i < 89)
 			{
 				putchar(',');
 				putchar(' ');
 			}
 		}
+
 	}
+	putchar('\n')
 	return (0);
 }

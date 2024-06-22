@@ -7,33 +7,34 @@
  */
 int main(void)
 {
-	int i;
-	int j;
-	int k;
-	int l;
+	int number_1;
+	int number_2;
+	int number_3;
+	int number_4;
+	int i, j;
 
 
-	for (i = 0; i < 9; i++)
+	for (i = 0; i < 100; i++)
 	{
-		for (j = 0; j < 9; j++)
+		for (j = 0; j < 100; j++)
 		{
-			for (k = 0; k < 9; k++)
+			number_1 = i / 10;
+			number_2 = i % 10;
+			number_3 = j / 10;
+			number_4 = j % 10;
+
+			putchar(number_1 + '0');
+			putchar(number_2 + '0');
+			putchar(' ');
+			putchar(number_3 + '0');
+			putchar(number_4 + '0');
+			if (i != 98 && j != 99)
 			{
-				for (l = 0; l < 9; l++)
-				{
-					putchar(i + '0');
-					putchar(j + '0');
-					putchar(' ');
-					putchar(k + '0');
-					putchar(j + '0');
-					if (i != 9 && j != 9)
-					{
-						putchar(',');
-						putchar(' ');
-					}
-				}
+				putchar(',');
+				putchar(' ');
 			}
 		}
 	}
+	putchar('\n');
 	return (0);
 }
