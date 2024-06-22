@@ -7,7 +7,7 @@
 int main(void)
 {
 	int i;
-	int j = 0;
+	int j;
 	int digit_jump = 3;
 
 	for (i = 0; i < 10; i++)
@@ -24,10 +24,10 @@ int main(void)
 					putchar(' ');
 				}
 			}
-			j = (j + digit_jump) % 10;
+			j++;
 		}
+		j = (j + digit_jump) % 10;
 		digit_jump++;
-
 	}
 	return (0);
 }
