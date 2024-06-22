@@ -13,8 +13,8 @@ int main(void)
 
 	for (k = 0; k < 100; k++)
 	{
-		i = index / 10;
-		j = index % 10;
+		i = k / 10;
+		j = k % 10;
 
 		if (i < j)
 		{
