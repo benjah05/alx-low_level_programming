@@ -8,26 +8,21 @@ int main(void)
 {
 	int i;
 	int j;
-	int digit_jump = 3;
 
-	for (i = 0; i < 10; i++)
+
+	for (index = 0; index < 100; index++)
 	{
-		while (j < 10)
-		{
-			if (i != j)
+		i = index / 10;
+		j = index % 10;
+
+		if (i < j)
+			putchar(i + '0');
+			putchar(j + '0');
+			if (i != 8 && j != 9)
 			{
-				putchar(i + '0');
-				putchar(j + '0');
-				if (i != 8 && j != 9)
-				{
-					putchar(',');
-					putchar(' ');
-				}
+				putchar(',');
+				putchar(' ');
 			}
-			j++;
-		}
-		j = (j + digit_jump) % 10;
-		digit_jump++;
 	}
 	return (0);
 }
