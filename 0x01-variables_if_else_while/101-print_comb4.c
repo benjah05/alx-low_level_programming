@@ -9,6 +9,7 @@ int main(void)
 	int number_1;
 	int number_2;
 	int number_3;
+	int n;
 
 
 	for (n = 100; n < 1000; n++)
