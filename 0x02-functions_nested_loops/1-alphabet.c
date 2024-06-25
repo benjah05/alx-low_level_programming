@@ -1,3 +1,5 @@
+#include "main.h"
+
 void print_alphabet(void)
 {
 	char a_z;
