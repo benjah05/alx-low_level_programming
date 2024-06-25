@@ -1,4 +1,12 @@
-#include "main.h"
+#ifndef PRINT_ALPHABET_H
+#define PRINT_ALPHABET_H 
+
+#include<stdio.h>
+
+void print_alphabet(void);
+
+#endif
+
 
 void print_alphabet(void)
 {
