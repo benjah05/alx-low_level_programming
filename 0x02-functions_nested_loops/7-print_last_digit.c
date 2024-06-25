@@ -1,5 +1,5 @@
 #include "main.h"
-/** 
+/**
  * print_last_digit - return the last digit of a number
  * @x: parameter x of int type
  * Return: last digit of a number
