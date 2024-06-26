@@ -1,9 +1,10 @@
-#include<stdio.h>
 #include "main.h"
+
 /**
  * main - check if numbers are either positive or negative
  * Return: 0
  */
+
 int main(void)
 {
 	int i;
