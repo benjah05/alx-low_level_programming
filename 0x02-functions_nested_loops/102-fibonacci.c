@@ -5,15 +5,14 @@
  */
 int main(void)
 {
-	int i = 1;
-	int j = 2;
-	int n, k;
+	long int i = 1, j = 2, k;
+	int n;
 
-	printf("%d, %d, ", i, j);
+	printf("%ld, %ld, ", i, j);
 	for (n = 3; n <= 50; n++)
 	{
 		k = i + j;
-		printf("%lu", k);
+		printf("%ld", k);
 		if (n != 50)
 			printf(", ");
 		i = j;
