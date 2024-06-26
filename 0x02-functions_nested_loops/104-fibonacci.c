@@ -7,7 +7,7 @@ int main(void)
 {
 	unsigned long int i = 1, j = 2, k;
 	unsigned long int i_1, i_2, j_1, j_2, a, b;
-	int n, count = 1;
+	int n;
 
 	printf("%lu, %lu, ", i, j);
 	for (n = 3; n <= 92; n++)
