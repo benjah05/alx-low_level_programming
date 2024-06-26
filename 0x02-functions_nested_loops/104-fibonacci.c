@@ -5,14 +5,14 @@
  */
 int main(void)
 {
-	unsigned int i = 1, j = 2, k;
+	unsigned long int i = 1, j = 2, k;
 	int n;
 
-	printf("%u, %u, ", i, j);
+	printf("%lu, %lu, ", i, j);
 	for (n = 3; n <= 98; n++)
 	{
 		k = i + j;
-		printf("%u", k);
+		printf("%lu", k);
 		if (n != 98)
 			printf(", ");
 		i = j;
