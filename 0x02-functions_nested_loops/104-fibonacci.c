@@ -41,8 +41,6 @@ int main(void)
 		i_2 = j_2;
 		j_1 = a;
 		j_2 = b;
-	}
-
 
 	}
 	printf("\n");
