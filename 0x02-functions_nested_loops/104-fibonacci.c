@@ -14,8 +14,7 @@ int main(void)
 	{
 		k = i + j;
 		printf("%lu", k);
-		if (n != 98)
-			printf(", ");
+		printf(", ");
 		i = j;
 		j = k;
 	}
@@ -34,7 +33,7 @@ int main(void)
 			b %= 10000000000;
 		}
 		printf("%lu%lu", a, b);
-		if (count != 98)
+		if (n != 98)
 			printf(", ");
 
 		i_1 = j_1;
