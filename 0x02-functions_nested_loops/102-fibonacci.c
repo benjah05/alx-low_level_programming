@@ -17,7 +17,7 @@ int main(void)
 		k = i + j;
 		printf("%d", k);
 		if (n != 48)
-			print(", ");
+			printf(", ");
 		i = j;
 		j = k;
 	}
