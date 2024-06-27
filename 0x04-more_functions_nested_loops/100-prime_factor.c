@@ -7,7 +7,7 @@ int main(void)
 {
 	long int num = 612852475143;
 	long int largest = 0;
-	int i, j;
+	int i, j, not_prime = 0;
 
 	for (i = 1; i <= num; i++)
 	{
@@ -16,12 +16,17 @@ int main(void)
 			for (j = 2; j < i; j++)
 			{
 				if (i % j == 0)
-					i = 0;
+				{
+					not_prime = 1;
 					break;
+				}
+			}
+			if (not_prime != 1)
+			{
+				if (largest < i)
+					largest = i;
 			}
 		}
-		if (largest < i)
-			largest = i;
 	}
 	printf("%ld\n", largest);
 	return (0);
