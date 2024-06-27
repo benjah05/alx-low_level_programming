@@ -9,7 +9,7 @@ int main(void)
 	long int largest = 0;
 	int i, j, not_prime = 0;
 
-	for (i = 1; i <= num; i++)
+	for (i = 2; i <= num; i++)
 	{
 		if (num % i == 0)
 		{
@@ -26,6 +26,7 @@ int main(void)
 				if (largest < i)
 					largest = i;
 			}
+			not_prime = 0;
 		}
 	}
 	printf("%ld\n", largest);
