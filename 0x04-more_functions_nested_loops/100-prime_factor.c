@@ -12,7 +12,7 @@ int main(void)
 	{
 		if (num % i == 0)
 		{
-			num /= 2;
+			num /= i;
 			continue;
 		}
 		for (i = 3; i < num / 2; i += 2)
