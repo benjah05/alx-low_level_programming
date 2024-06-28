@@ -5,14 +5,14 @@
 */
 int main(void)
 {
-	long int num = 612852475143;
-	int i = 1;
+	long num = 612852475143;
+	long i;
 
 	while (i < num / 2)
 	{
 		if (num % i == 0)
 		{
-			num /= i;
+			num /= 2;
 			continue;
 		}
 		for (i = 3; i < num / 2; i += 2)
