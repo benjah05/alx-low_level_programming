@@ -15,13 +15,17 @@ char *cap_string(char *str)
 	str_size = strlen(str);
 	for (i = 0; i < str_size; i++)
 	{
-		for (j = 0; j < 13; j++)
+		if (i == 0 && ((int) str[i] >= 97 && (int) str[i] <= 122))
+			str[i] = (char) ((int) str[i] - 32);
+		else
 		{
-			if (separators[j] == str[i] && islower(str[i + 1]))
+			for (j = 0; j < 13; j++)
 			{
-				str[i + 1] = toupper(str[i + 1]);
+				if (separators[j] == (int) str[i] && islower(str[i + 1]))
+				{
+					str[i + 1] = (char)((int) str[i + 1] - 32);
+				}
 			}
 		}
-	}
 	return (str);
 }
