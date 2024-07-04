@@ -12,7 +12,7 @@ char *leet(char *str)
 	char num[] = "4307143071";
 	size_t i, j;
 
-	for (i = 0; i < strlen(str); i ++)
+	for (i = 0; i < strlen(str); i++)
 	{
 		for (j = 0; j < strlen(alpha); j++)
 		{
