@@ -17,12 +17,9 @@ char *cap_string(char *str)
 	{
 		for (j = 0; j < 13; j++)
 		{
-			if (separators[j] == (int) str[i])
+			if (separators[j] == str[i] && islower(str[i + 1]))
 			{
-				if (i + 1 < str_size && islower(str[i + 1]))
-				{
-					str[i + 1] = (char) toupper(str[i + 1]);
-				}
+				str[i + 1] = toupper(str[i + 1]);
 			}
 		}
 	}
