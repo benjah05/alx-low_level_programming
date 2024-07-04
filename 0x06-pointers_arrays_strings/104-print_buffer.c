@@ -42,8 +42,7 @@ void print_buffer(char *b, int size)
 		{
 			if (start_pt + k < size)
 			{
-				if (isprint(b[start_pt + k]))
-					printf("%c", b[start_pt + k]);
+				if (isprint(b[start_pt + k] printf("%c", b[start_pt + k]);
 				else
 					putchar('.');
 			}
