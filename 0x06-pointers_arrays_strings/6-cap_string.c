@@ -18,7 +18,7 @@ char *cap_string(char *str)
 		{
 			if (separators[j] == (int) str[i])
 			{
-				if (islower(str[i + 1]))
+				if (i + 1 < str_size && islower(str[i + 1]))
 				{
 					str[i + 1] = (char) ((int) str[i + 1] - 32);
 				}
