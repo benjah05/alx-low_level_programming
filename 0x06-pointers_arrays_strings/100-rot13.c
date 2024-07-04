@@ -7,13 +7,14 @@
  */
 char *rot13(char *s)
 {
-	size_t i, j;
+	int i;
+	size_t j;
 	char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char rot_alpha[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	for (i = 0; i < strlen(s); i++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (j = 0; j < strlen(alpha); j++)
+		for (j = 0; strlen(alpha[j]); j++)
 		{
 			if (s[i] == alpha[j])
 				s[i] = rot_alpha[j];
