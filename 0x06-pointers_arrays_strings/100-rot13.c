@@ -7,14 +7,18 @@
  */
 char *rot13(char *s)
 {
-	size_t i;
+	size_t i, j;
+	char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char rot_alpha[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWZABCDEFGHIJKLM";
 
 	for (i = 0; i < strlen(s); i++)
 	{
-		if ((s[i] >= 'A' && s[i] <= 'M') || (s[i] >= 'a' && s[i] <= 'm'))
-			s[i] = (char) (s[i] + 13);
-		else if ((s[i] >= 'N' && s[i] <= 'Z') || (s[i] >= 'n' && s[i] <= 'z'))
-			s[i] = (char) (s[i] - 13);
+		for (j = 0; j < strlen(alpha); j++)
+		{
+			if (s[i] == alpha[j])
+				s[i] = rot_alpha[j];
+			break;
+		}
 	}
 	return (s);
 }
