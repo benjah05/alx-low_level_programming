@@ -35,14 +35,14 @@ void print_buffer(char *b, int size)
 				putchar(' ');
 			}
 			else
-				printf("     ");
+				printf("    ");
 		}
 		putchar(' ');
 		for (k = 0; k < 10; k++)
 		{
 			if (start_pt + k < size)
 			{
-				if(isprint(b[start_pt + k]))
+				if (isprint(b[start_pt + k]))
 					printf("%c", b[start_pt + k]);
 				else
 					putchar('.');
