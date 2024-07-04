@@ -9,7 +9,7 @@ char *rot13(char *s)
 {
 	size_t i, j;
 	char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char rot_alpha[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWZABCDEFGHIJKLM";
+	char rot_alpha[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
 	for (i = 0; i < strlen(s); i++)
 	{
