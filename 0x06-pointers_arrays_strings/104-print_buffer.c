@@ -9,9 +9,9 @@
  */
 void print_buffer(char *b, int size)
 {
-	int i, k, start_pt;
+	int i, k, start_pt = 0;
 
-	for (start_pt = 0; start_pt < size; start_pt += 10)
+	while (start_pt < size)
 	{
 		printf("%08x: ", start_pt);
 		for (i = start_pt; i < start_pt + 10; i++)
@@ -33,8 +33,9 @@ void print_buffer(char *b, int size)
 					putchar('.');
 			}
 			else
-				putchar(' ');
+				break;
 		}
+		start_pt += 10;
 		if (start_pt < size)
 			putchar ('\n');
 	}
