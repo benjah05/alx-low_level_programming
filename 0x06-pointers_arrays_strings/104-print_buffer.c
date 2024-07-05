@@ -20,8 +20,7 @@ void print_buffer(char *b, int size)
 	for (line = 0; line < num_lines; line++)
 	{
 		start_pt = line * 10;
-		printf("%08x:", start_pt);
-		putchar(' ');
+		printf("%08x: ", start_pt);
 		for (i = 0; i < 10; i += 2)
 		{
 			index = start_pt + i;
@@ -35,14 +34,15 @@ void print_buffer(char *b, int size)
 				putchar(' ');
 			}
 			else
-				printf("    ");
+				printf("     ");
 		}
 		putchar(' ');
 		for (k = 0; k < 10; k++)
 		{
 			if (start_pt + k < size)
 			{
-				if (isprint(b[start_pt + k] printf("%c", b[start_pt + k]);
+				if (isprint(b[start_pt + k]))
+					printf("%c", b[start_pt + k]);
 				else
 					putchar('.');
 			}
