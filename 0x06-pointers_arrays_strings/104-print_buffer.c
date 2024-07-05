@@ -28,7 +28,7 @@ void print_buffer(char *b, int size)
 		{
 			if (k < size)
 			{
-				if (isprint(b[k]))
+				if (isprint((unsigned char) b[k]))
 					printf("%c", b[k]);
 				else
 					putchar('.');
@@ -37,7 +37,7 @@ void print_buffer(char *b, int size)
 				break;
 		}
 		if (start_pt < size)
-			putchar('\n');
+			putchar ('\n');
 	}
 	putchar('\n');
 }
