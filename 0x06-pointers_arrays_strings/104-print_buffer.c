@@ -9,43 +9,37 @@
  */
 void print_buffer(char *b, int size)
 {
-	int i, k, index, start_pt, line, num_lines;
+	int i, k, start_pt;
 
 	if (size <= 0)
 	{
 		putchar('\n');
 		return;
 	}
-	num_lines = (size - 1) / 10 + 1;
-	for (line = 0; line < num_lines; line++)
+	for (start_pt = 0; start_pt < size; start_pt += 10)
 	{
-		start_pt = line * 10;
 		printf("%08x: ", start_pt);
-		for (i = 0; i < 10; i += 2)
+		for (i = start_pt; i < start_pt + 10; i++)
 		{
-			index = start_pt + i;
-			if (index < size)
-			{
-				printf("%02x", b[index]);
-				if (index + 1 < size)
-					printf("%02x", b[index + 1]);
-				else
-					printf("  ");
-				putchar(' ');
-			}
+			if (i < size)
+				printf("%02x", (unsigned char) b[i]);
 			else
-				printf("     ");
+				printf("  ");
+			if (i % 2 == 1)
+				putchar(' ');
 		}
 		putchar(' ');
-		for (k = 0; k < 10; k++)
+		for (k = start_pt; k < 10 + start_pt; k++)
 		{
-			if (start_pt + k < size)
+			if (k < size)
 			{
-				if (isprint(b[start_pt + k]))
-					printf("%c", b[start_pt + k]);
+				if (isprint(b[k]))
+					printf("%c", b[k]);
 				else
 					putchar('.');
 			}
+			else
+				break;
 		}
 		putchar('\n');
 	}
