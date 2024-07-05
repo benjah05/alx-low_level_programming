@@ -22,8 +22,8 @@ void print_buffer(char *b, int size)
 				printf("  ");
 			if (i % 2 == 1)
 				putchar(' ');
+		
 		}
-		putchar(' ');
 		for (k = start_pt; k < 10 + start_pt; k++)
 		{
 			if (k < size)
