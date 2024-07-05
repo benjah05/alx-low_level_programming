@@ -20,11 +20,10 @@ void print_buffer(char *b, int size)
 				printf("%02x", (unsigned char) b[i]);
 			else
 				printf("  ");
-			if (i % 2 == 1)
+			if (i % 2)
 				putchar(' ');
-		
 		}
-		for (k = start_pt; k < 10 + start_pt; k++)
+		for (k = start_pt; k < start_pt + 10; k++)
 		{
 			if (k < size)
 			{
@@ -34,7 +33,7 @@ void print_buffer(char *b, int size)
 					putchar('.');
 			}
 			else
-				break;
+				putchar(' ');
 		}
 		if (start_pt < size)
 			putchar ('\n');
