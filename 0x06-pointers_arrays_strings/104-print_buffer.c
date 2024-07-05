@@ -11,11 +11,6 @@ void print_buffer(char *b, int size)
 {
 	int i, k, start_pt;
 
-	if (size <= 0)
-	{
-		putchar('\n');
-		return;
-	}
 	for (start_pt = 0; start_pt < size; start_pt += 10)
 	{
 		printf("%08x: ", start_pt);
@@ -41,6 +36,8 @@ void print_buffer(char *b, int size)
 			else
 				break;
 		}
-		putchar('\n');
+		if (start_pt < size)
+			putchar('\n');
 	}
+	putchar('\n');
 }
