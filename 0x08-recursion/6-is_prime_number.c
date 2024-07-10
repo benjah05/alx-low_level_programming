@@ -13,7 +13,8 @@ int _check_prime(int n, int i)
 		return (1);
 	return (_check_prime(n, i + 1));
 }
-/**                                           * is_prime_number - check if a number is prime or not
+/**
+ * is_prime_number - check if a number is prime or not
  * @n: the number
  * Return: 1 if prime, 0 if not
  */
