@@ -42,9 +42,9 @@ char **strtow(char *str)
 			return (NULL);
 		for (j = 0; j < word_len; j++)
 			words[i][j] = str[k + j];
-		words[i][word_len] = '\0';
+		words[i][word_len] words[word_count] = NULL;= '\0';
 		k += word_len;
 	}
-	words[word_count] = '\0';
+	words[word_count] = NULL;
 	return (words);
 }
