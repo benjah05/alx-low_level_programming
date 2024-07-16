@@ -11,7 +11,7 @@ char **strtow(char *str)
 	char **words;
 	unsigned int i, j, k, len = 0, word_count = 0, word = 0, word_len = 0;
 
-	if (str == NULL || strcmp(str, "") == 0)
+	if (str == NULL || *str == '\0')
 		return (NULL);
 	while (str[len] != '\0')
 		len++;
@@ -27,7 +27,7 @@ char **strtow(char *str)
 	}
 	if (word_count == 0)
 		return (NULL);
-	words = (char **)malloc(sizeof(char *) * word_count + 1);
+	words = malloc(sizeof(char *) * (word_count + 1));
 	if (words == NULL)
 		return (NULL);
 	for (i = 0, k = 0; i < word_count; i++)
@@ -37,7 +37,7 @@ char **strtow(char *str)
 		word_len = 0;
 		while (str[k + word_len] != ' ' && str[k + word_len] != '\0')
 			word_len++;
-		words[i] = (char *)malloc(sizeof(char) * word_len + 1);
+		words[i] = malloc(sizeof(char) * (word_len + 1));
 		if (words[i] == NULL)
 			return (NULL);
 		for (j = 0; j < word_len; j++)
