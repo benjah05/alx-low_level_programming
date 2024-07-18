@@ -24,8 +24,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	newPtr = malloc(new_size);
 	if (newPtr == NULL)
 		return (NULL);
-	if (new_size > old_size)
-		return (newPtr);
 	smallest_size = old_size > new_size ? new_size : old_size;
 	for (i = 0; i < smallest_size; i++)
 		*((char *)newPtr + i) = *((char *)ptr + i);
