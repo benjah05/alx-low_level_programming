@@ -39,8 +39,8 @@ int *mul(char *num1, char *num2)
 	while (num2[len2] != '\0')
 		len2++;
 	maxLen = len1 + len2;
-	n1 = malloc(len1 * sizeof(int));
-	n2 = malloc(len2 * sizeof(int));
+	n1 = malloc(len1 * sizeof(int *));
+	n2 = malloc(len2 * sizeof(int *));
 	product = malloc((maxLen + 1) * sizeof(int));
 	if (product == NULL || n1 == NULL || n2 == NULL)
 		_printerr();
@@ -65,7 +65,7 @@ int *mul(char *num1, char *num2)
 			break;
 	}
 	for (; i >= 0; i--)
-		printf("%d", product[i]);
+		putchar(product[i] + '0');
 	free(n1);
 	free(n2);
 	free(product);
@@ -92,16 +92,11 @@ int main(int argc, char *argv[])
 		{
 			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
 				_printerr();
-			if (*n1 == '0' || *n2 == '0')
-			{
-				putchar('0');
-				putchar('\n');
-				if (n1[j] == '\0' && n2[j] == '\0')
-					return (0);
-			}
 		}
 	}
-	mul(argv[1], argv[2]);
+	if (*n1 == '0' || *n2 == '0')
+		putchar('0');
+	mul(n1, n2);
 	_printchar("\n");
 	return (0);
 }
