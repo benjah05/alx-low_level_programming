@@ -31,7 +31,7 @@ int _printerr(void)
  */
 char *mul(char *num1, char *num2)
 {
-	long int i, j, a, z, len1 = 0, len2 = 0, maxLen, overflow;
+	long int i, j, a = 0, z, len1 = 0, len2 = 0, maxLen, overflow;
 	char *product, temp;
 
 	while (num1[len1] != '\0')
@@ -66,8 +66,11 @@ char *mul(char *num1, char *num2)
 		product[a] = product[z];
 		product[z] = temp;
 	}
+	a = 0;
+	while (product[a] == '0' && a < i)
+		a++;
 	for (j = 0; j <= i; j++)
-		product[j] = product[j + (maxLen - i - 1)];
+		product[j] = product[j + a];
 	return (product);
 }
 /**
