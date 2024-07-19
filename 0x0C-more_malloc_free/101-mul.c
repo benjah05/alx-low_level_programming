@@ -59,17 +59,17 @@ char *mul(char *num1, char *num2)
 		if (product[i] != '\0')
 			break;
 	}
-	product[i + 1] = '\0';
+	while (product[k] == '0' && k < i)
+		k++;
+	for (j = 0; j <= i - k; j++)
+		product[j] = product[j + k];
+	product[i + 1 - k] = '\0';
 	for (a = 0, z = i; a < z; a++, z--)
 	{
 		temp = product[a];
 		product[a] = product[z];
 		product[z] = temp;
 	}
-	while (product[k] == '0' && k < i)
-		k++;
-	for (j = 0; j <= i; j++)
-		product[j] = product[j + k];
 	return (product);
 }
 /**
