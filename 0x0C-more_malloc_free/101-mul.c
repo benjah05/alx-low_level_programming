@@ -41,7 +41,7 @@ int *mul(char *num1, char *num2)
 	maxLen = len1 + len2;
 	n1 = malloc(len1 * sizeof(int));
 	n2 = malloc(len2 * sizeof(int));
-	product = malloc(maxLen, sizeof(int));
+	product = malloc((maxLen + 1) * sizeof(int));
 	if (product == NULL || n1 == NULL || n2 == NULL)
 		_printerr();
 	for (i = len1 - 1, j = 0; i >= 0; i--, j++)
@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
 				_printerr();
 		}
 	}
-	if (argv[1] == '0' || argv[2] == '0')
+	if (argv[1][0] == '0' || argv[2][0] == '0')
 		putchar('0');
 	mul(argv[1], argv[2]);
 	_printchar("\n");
