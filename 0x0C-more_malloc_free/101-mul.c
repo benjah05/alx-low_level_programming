@@ -59,19 +59,15 @@ int *mul(char *num1, char *num2)
 	{
 		overflow = product[i] / 10;
 		product[i] = product[i] % 10;
-		if (i + 1 < maxLen)
-			product[i + 1] = product[i + 1] + overflow;
+		product[i + 1] = product[i + 1] + overflow;
 	}
 	for (i = maxLen; i >= 0; i--)
 	{
 		if (product[i] > 0)
 			break;
 	}
-	if (i < 0)
-		putchar('0');
-	else
-		for (; i >= 0; i--)
-			putchar(product[i] + '0');
+	for (; i >= 0; i--)
+		putchar(product[i] + '0');
 	free(n1), free(n2), free(product);
 	return (0);
 }
@@ -98,11 +94,12 @@ int main(int argc, char *argv[])
 				_printerr();
 		}
 	}
-	if (*n1 == '\0' || *n2 == '\0')
+	for (i = 0; n1[i] == '0' || n2[i] == '0'; i++)
 	{
+		if (n1[i] == '\0')
+			return (0);
 		putchar('0');
 		putchar('\n');
-		return (0);
 	}
 	mul(n1, n2);
 	_printchar("\n");
