@@ -79,20 +79,22 @@ int *mul(char *num1, char *num2)
  */
 int main(int argc, char *argv[])
 {
-	long int i, j, num;
+	long int i, j;
+	char *n1, *n2;
 
 	if (argc != 3)
 		_printerr();
+	n1 = argv[1];
+	n2 = argv[2];
 	for (i = 1; i < argc; i++)
 	{
 		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			num = argv[i][j];
-			if (!(num >= '0' && num <= '9'))
+			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
 				_printerr();
 		}
 	}
-	if (argv[1][0] == '0' || argv[2][0] == '0')
+	if (*n1 == '0' && *n2 == '0')
 		putchar('0');
 	mul(argv[1], argv[2]);
 	_printchar("\n");
