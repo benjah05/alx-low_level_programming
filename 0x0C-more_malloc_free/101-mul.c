@@ -64,7 +64,7 @@ int *mul(char *num1, char *num2)
 			break;
 	}
 	for (; i >= 0; i--)
-		_putchar(product[i] + '0');
+		printf("%d", product[i]);
 	free(n1);
 	free(n2);
 	free(product);
