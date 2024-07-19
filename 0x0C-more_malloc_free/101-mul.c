@@ -10,7 +10,7 @@ void _printchar(char *c)
 	int i;
 
 	for (i = 0; c[i] != '\0'; i++)
-		putchar(c[i]);
+		_putchar(c[i]);
 }
 /**
  * _printerr - print error message
