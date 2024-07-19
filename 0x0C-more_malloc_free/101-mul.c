@@ -24,26 +24,6 @@ int _printerr(void)
 	exit(98);
 }
 /**
- * _calloc - allocate memory of an array using malloc
- * @nmemb: number of elements of the array
- * @size: bytes of each array element
- * Return: array allocated using malloc
- */
-void *_calloc(unsigned int nmemb, unsigned int size)
-{
-	unsigned int i;
-	void *arr;
-
-	if (nmemb == 0 || size == 0)
-		_printerr();
-	arr = malloc(size * nmemb);
-	if (arr == NULL)
-		_printerr();
-	for (i = 0; i < size * nmemb; i++)
-		*((char *)arr + i) = 0;
-	return (arr);
-}
-/**
  * mul - find and print the product of 2 positive numbers
  * @num1: the first number
  * @num2: the second number
@@ -61,7 +41,7 @@ int *mul(char *num1, char *num2)
 	maxLen = len1 + len2;
 	n1 = malloc(len1 * sizeof(int));
 	n2 = malloc(len2 * sizeof(int));
-	product = _calloc(maxLen, sizeof(int));
+	product = malloc(maxLen, sizeof(int));
 	if (product == NULL || n1 == NULL || n2 == NULL)
 		_printerr();
 	for (i = len1 - 1, j = 0; i >= 0; i--, j++)
@@ -112,6 +92,8 @@ int main(int argc, char *argv[])
 				_printerr();
 		}
 	}
+	if (argv[1] == '0' || argv[2] == '0')
+		putchar('0');
 	mul(argv[1], argv[2]);
 	_printchar("\n");
 	return (0);
