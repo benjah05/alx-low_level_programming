@@ -1,6 +1,29 @@
 #include "main.h"
 #include <stdlib.h>
 /**
+ * _printchar - print string
+ * @c: string to print
+ * Return: void
+*/
+void _printchar(char *c)
+{
+	int i;
+
+	for (i = 0; c[i] != '\0'; i++)
+		_putchar(c[i]);
+}
+/**
+ * _printerr - print error message
+ * Return: 98
+ */
+int _printerr(void)
+{
+	char err[] = "Error\n";
+
+	_printchar(err);
+	exit(98);
+}
+/**
  * mul - multiply 2 positive numbers
  * @num1: the first number
  * @num2: the second number
@@ -18,7 +41,7 @@ char *mul(char *num1, char *num2)
 	maxLen = len1 + len2;
 	product = malloc((maxLen + 1) * sizeof(char));
 	if (product == NULL)
-		exit(98);
+		_printerr();
 	/* Initialize product array*/
 	for (i = 0; i <= maxLen; i++)
 		product[i] = 0;
@@ -50,18 +73,6 @@ char *mul(char *num1, char *num2)
 	return (product);
 }
 /**
- * _printchar - print a character
- * @c: string to print
- * Return: void
- */
-void _printchar(char *c)
-{
-	int i;
-
-	for (i = 0; c[i] != '\0'; i++)
-		_putchar(c[i]);
-}
-/**
  * main - Get 2 positive numbers to be multiplied
  * @argc: number of command line arguments
  * @argv: an array of command line arguments
@@ -70,23 +81,16 @@ void _printchar(char *c)
 int main(int argc, char *argv[])
 {
 	long int i, j, num;
-	char err[] = "Error\n";
 
 	if (argc != 3)
-	{
-		_printchar(err);
-		exit(98);
-	}
+		_printerr();
 	for (i = 1; i < argc; i++)
 	{
 		for (j = 0; argv[i][j] != '\0'; j++)
 		{
 			num = argv[i][j];
 			if (!(num >= '0' && num <= '9'))
-			{
-				_printchar(err);
-				exit(98);
-			}
+				_printerr();
 		}
 	}
 	_printchar(mul(argv[1], argv[2]));
