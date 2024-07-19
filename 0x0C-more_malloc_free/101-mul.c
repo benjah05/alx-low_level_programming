@@ -94,8 +94,12 @@ int main(int argc, char *argv[])
 				_printerr();
 		}
 	}
-	if (*n1 == '0' || *n2 == '0')
+	if (*n1 == '\0' || *n2 == '\0')
+	{
 		putchar('0');
+		putchar('\n');
+		return (0);
+	}
 	mul(n1, n2);
 	_printchar("\n");
 	return (0);
