@@ -57,7 +57,8 @@ int *mul(char *num1, char *num2)
 	{
 		overflow = product[i] / 10;
 		product[i] = product[i] % 10;
-		product[i + 1] = product[i + 1] + overflow;
+		if (i + 1 < maxLen)
+			product[i + 1] = product[i + 1] + overflow;
 	}
 	for (i = maxLen; i >= 0; i--)
 	{
