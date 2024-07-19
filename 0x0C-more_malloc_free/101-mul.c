@@ -31,16 +31,15 @@ int _printerr(void)
  */
 int *mul(char *num1, char *num2)
 {
-	unsigned int *n1, *n2, *product, overflow;
-	int i, j, maxLen, len1 = 0, len2 = 0;
+	int *n1, *n2, *product, overflow, i, j, maxLen, len1 = 0, len2 = 0;
 
 	while (num1[len1] != '\0')
 		len1++;
 	while (num2[len2] != '\0')
 		len2++;
 	maxLen = len1 + len2;
-	n1 = malloc(len1 * sizeof(int *));
-	n2 = malloc(len2 * sizeof(int *));
+	n1 = malloc(len1 * sizeof(int));
+	n2 = malloc(len2 * sizeof(int));
 	product = malloc((maxLen + 1) * sizeof(int));
 	if (product == NULL || n1 == NULL || n2 == NULL)
 		_printerr();
@@ -65,11 +64,12 @@ int *mul(char *num1, char *num2)
 		if (product[i] > 0)
 			break;
 	}
-	for (; i >= 0; i--)
-		putchar(product[i] + '0');
-	free(n1);
-	free(n2);
-	free(product);
+	if (i < 0)
+		putchar('0');
+	else
+		for (; i >= 0; i--)
+			putchar(product[i] + '0');
+	free(n1), free(n2), free(product);
 	return (0);
 }
 /**
