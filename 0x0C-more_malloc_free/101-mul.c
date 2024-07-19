@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
 	}
 	for (i = 0; n1[i] == '0' || n2[i] == '0'; i++)
 	{
-		if (n1[i] == '\0')
+		if (n1[i] == '\0' || n2[i] == '\0')
 		{
 			_printchar("\n");
 			return (0);
