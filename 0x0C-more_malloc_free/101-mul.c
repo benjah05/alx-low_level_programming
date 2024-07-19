@@ -10,7 +10,7 @@ void _printchar(char *c)
 	int i;
 
 	for (i = 0; c[i] != '\0'; i++)
-		_putchar(c[i]);
+		putchar(c[i]);
 }
 /**
  * _printerr - print error message
@@ -42,27 +42,23 @@ char *mul(char *num1, char *num2)
 	product = malloc((maxLen + 1) * sizeof(char));
 	if (product == NULL)
 		_printerr();
-	/* Initialize product array*/
 	for (i = 0; i <= maxLen; i++)
-		product[i] = 0;
+		product[i] = '0';
 	for (i = 0; i < len1; i++)
 	{
 		for (j = 0; j < len2; j++)
+		{
 			product[i + j] += (num1[len1 - 1 - i] - '0') * (num2[len2 - 1 - j] - '0');
-	}
-	for (i = 0; i < maxLen; i++)
-	{
-		overflow = product[i] / 10;
-		product[i] = product[i] % 10;
-		product[i + 1] += overflow;
+			overflow = product[i + j] - '0';
+			product[i + j] = (overflow % 10) + '0';
+			product[i + j + 1] += overflow / 10;
+		}
 	}
 	for (i = maxLen; i >= 0; i--)
 	{
-		if (product[i] != 0)
+		if (product[i] != '\0')
 			break;
 	}
-	for (j = 0; j <= i; j++)
-		product[j] += '0';
 	product[i + 1] = '\0';
 	for (a = 0, z = i; a < z; a++, z--)
 	{
@@ -70,6 +66,8 @@ char *mul(char *num1, char *num2)
 		product[a] = product[z];
 		product[z] = temp;
 	}
+	for (j = 0; j <= i; j++)
+		product[j] = product[j + (maxLen - i - 1)];
 	return (product);
 }
 /**
