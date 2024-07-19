@@ -69,7 +69,7 @@ char *mul(char *num1, char *num2)
 	while (product[k] == '0' && k < i)
 		k++;
 	for (j = 0; j <= i; j++)
-		product[j] = product[j + k;
+		product[j] = product[j + k];
 	return (product);
 }
 /**
