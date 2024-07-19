@@ -93,7 +93,10 @@ int main(int argc, char *argv[])
 			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
 				_printerr();
 			if (*n1 == '0' || *n2 == '0')
+			{
 				putchar('0');
+				return (0);
+			}
 		}
 	}
 	mul(argv[1], argv[2]);
