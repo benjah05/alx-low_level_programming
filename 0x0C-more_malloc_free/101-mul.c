@@ -42,7 +42,10 @@ int *mul(char *num1, char *num2)
 	n2 = malloc(len2 * sizeof(int));
 	product = malloc((maxLen + 1) * sizeof(int));
 	if (product == NULL || n1 == NULL || n2 == NULL)
+	{
+		free(product), free(n1), free(n2);
 		_printerr();
+	}
 	for (i = len1 - 1, j = 0; i >= 0; i--, j++)
 		n1[j] = num1[i] - '0';
 	for (i = len2 - 1, j = 0; i >= 0; i--, j++)
