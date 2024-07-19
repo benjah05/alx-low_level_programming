@@ -4,7 +4,7 @@
  * _printchar - print string
  * @c: string to print
  * Return: void
-*/
+ */
 void _printchar(char *c)
 {
 	int i;
@@ -24,53 +24,51 @@ int _printerr(void)
 	exit(98);
 }
 /**
- * mul - multiply 2 positive numbers
+ * mul - find and print the product of 2 positive numbers
  * @num1: the first number
  * @num2: the second number
- * Return: pointer to the product of num1 and num2
+ * Return: 0
  */
-char *mul(char *num1, char *num2)
+int *mul(char *num1, char *num2)
 {
-	long int i, j, a, k = 0, z, len1 = 0, len2 = 0, maxLen, overflow;
-	char *product, temp;
+	int i, j, *n1, *n2, *product, len1 = 0, len2 = 0, maxLen, overflow;
 
 	while (num1[len1] != '\0')
 		len1++;
 	while (num2[len2] != '\0')
 		len2++;
 	maxLen = len1 + len2;
-	product = malloc((maxLen + 1) * sizeof(char));
-	if (product == NULL)
+	n1 = malloc(len1 * sizeof(int));
+	n2 = malloc(len2 * sizeof(int));
+	product = malloc(maxLen * sizeof(int));
+	if (product == NULL || n1 == NULL || n2 == NULL)
 		_printerr();
-	for (i = 0; i <= maxLen; i++)
-		product[i] = '0';
-	for (i = 0; i < len1; i++)
+	for (i = len1 - 1, j = 0; i >= 0; i--, j++)
+		n1[j] = num1[i] - '0';
+	for (i = len2 - 1, j = 0; i >= 0; i--, j++)
+		n2[j] = num2[i] - '0';
+	for (i = 0; i < len2; i++)
 	{
-		for (j = 0; j < len2; j++)
-		{
-			product[i + j] += (num1[len1 - 1 - i] - '0') * (num2[len2 - 1 - j] - '0');
-			overflow = product[i + j] - '0';
-			product[i + j] = (overflow % 10) + '0';
-			product[i + j + 1] += overflow / 10;
-		}
+		for (j = 0; j < len1; j++)
+			product[i + j] += n2[i] * n1[j];
+	}
+	for (i = 0; i < maxLen; i++)
+	{
+		overflow = product[i] / 10;
+		product[i] = product[i] % 10;
+		product[i + 1] = product[i + 1] + overflow;
 	}
 	for (i = maxLen; i >= 0; i--)
 	{
-		if (product[i] != '\0')
+		if (product[i] > 0)
 			break;
 	}
-	while (product[k] == '0' && k < i)
-		k++;
-	for (j = 0; j <= i - k; j++)
-		product[j] = product[j + k];
-	product[i + 1 - k] = '\0';
-	for (a = 0, z = i; a < z; a++, z--)
-	{
-		temp = product[a];
-		product[a] = product[z];
-		product[z] = temp;
-	}
-	return (product);
+	for (; i >= 0; i--)
+		_putchar(product[i] + '0');
+	free(n1);
+	free(n2);
+	free(product);
+	return (0);
 }
 /**
  * main - Get 2 positive numbers to be multiplied
@@ -93,7 +91,7 @@ int main(int argc, char *argv[])
 				_printerr();
 		}
 	}
-	_printchar(mul(argv[1], argv[2]));
+	mul(argv[1], argv[2]);
 	_printchar("\n");
 	return (0);
 }
