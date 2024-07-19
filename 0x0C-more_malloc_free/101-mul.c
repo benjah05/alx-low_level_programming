@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 /**
- * _printchar - print string
+ * _printchar - print a string, character by character
  * @c: string to print
  * Return: void
  */
@@ -40,7 +40,7 @@ int *mul(char *num1, char *num2)
 	maxLen = len1 + len2;
 	n1 = malloc(len1 * sizeof(int));
 	n2 = malloc(len2 * sizeof(int));
-	product = malloc(maxLen * sizeof(int));
+	product = calloc(maxLen, sizeof(int));
 	if (product == NULL || n1 == NULL || n2 == NULL)
 		_printerr();
 	for (i = len1 - 1, j = 0; i >= 0; i--, j++)
