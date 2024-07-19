@@ -97,9 +97,11 @@ int main(int argc, char *argv[])
 	for (i = 0; n1[i] == '0' || n2[i] == '0'; i++)
 	{
 		if (n1[i] == '\0')
+		{
+			_printchar("\n");
 			return (0);
-		putchar('0');
-		putchar('\n');
+		}
+		_printchar("0\n");
 	}
 	mul(n1, n2);
 	_printchar("\n");
