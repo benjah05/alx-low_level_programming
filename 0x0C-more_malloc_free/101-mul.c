@@ -95,7 +95,9 @@ int main(int argc, char *argv[])
 			if (*n1 == '0' || *n2 == '0')
 			{
 				putchar('0');
-				return (0);
+				putchar('\n');
+				if (n1[j] == '\0' && n2[j] == '\0')
+					return (0);
 			}
 		}
 	}
