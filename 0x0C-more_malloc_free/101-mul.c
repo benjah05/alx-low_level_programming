@@ -24,6 +24,19 @@ int _printerr(void)
 	exit(98);
 }
 /**
+ * find_len - find length of the string
+ * @a: the string
+ * Return: length of the string
+ */
+int find_len(char *a)
+{
+	int len = 0;
+
+	while (a[len] != '\0')
+		len++;
+	return (len);
+}
+/**
  * mul - find and print the product of 2 positive numbers
  * @num1: the first number
  * @num2: the second number
@@ -31,21 +44,16 @@ int _printerr(void)
  */
 int *mul(char *num1, char *num2)
 {
-	int *n1, *n2, *product, overflow, i, j, maxLen, len1 = 0, len2 = 0;
+	int *n1, *n2, *product, overflow, i, j, maxLen, len1, len2;
 
-	while (num1[len1] != '\0')
-		len1++;
-	while (num2[len2] != '\0')
-		len2++;
+	len1 = find_len(num1);
+	len2 = find_len(num2);
 	maxLen = len1 + len2;
 	n1 = malloc(len1 * sizeof(int));
 	n2 = malloc(len2 * sizeof(int));
 	product = malloc((maxLen + 1) * sizeof(int));
 	if (product == NULL || n1 == NULL || n2 == NULL)
-	{
-		free(product), free(n1), free(n2);
 		_printerr();
-	}
 	for (i = len1 - 1, j = 0; i >= 0; i--, j++)
 		n1[j] = num1[i] - '0';
 	for (i = len2 - 1, j = 0; i >= 0; i--, j++)
@@ -65,6 +73,11 @@ int *mul(char *num1, char *num2)
 	{
 		if (product[i] > 0)
 			break;
+	}
+	if (i < 0)
+	{
+		_printchar("0\n");
+		return (0);
 	}
 	for (; i >= 0; i--)
 		putchar(product[i] + '0');
@@ -93,15 +106,6 @@ int main(int argc, char *argv[])
 			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
 				_printerr();
 		}
-	}
-	for (i = 0; n1[i] == '0' || n2[i] == '0'; i++)
-	{
-		if (n1[i] == '\0' || n2[i] == '\0')
-		{
-			_printchar("\n");
-			return (0);
-		}
-		_printchar("0\n");
 	}
 	mul(n1, n2);
 	_printchar("\n");
