@@ -76,7 +76,7 @@ int *mul(char *num1, char *num2)
 	}
 	if (i < 0)
 	{
-		_printchar("0\n");
+		_printchar("0");
 		return (0);
 	}
 	for (; i >= 0; i--)
