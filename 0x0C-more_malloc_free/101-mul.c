@@ -44,7 +44,7 @@ int find_len(char *a)
  */
 int *mul(char *num1, char *num2)
 {
-	int *n1, *n2, *product, overflow, i, j, maxLen, len1, len2;
+	int *n1, *n2, *product, overflow, i, j, len1, len2;
 
 	len1 = find_len(num1);
 	len2 = find_len(num2);
