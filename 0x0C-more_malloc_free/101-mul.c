@@ -48,10 +48,11 @@ int *mul(char *num1, char *num2)
 
 	len1 = find_len(num1);
 	len2 = find_len(num2);
-	maxLen = len1 + len2;
 	n1 = malloc(len1 * sizeof(int));
 	n2 = malloc(len2 * sizeof(int));
-	product = malloc(maxLen * sizeof(int));
+	product = malloc((len1 + len2 + 1) * sizeof(int));
+	for (i = 0; i <= len1 + len2; i++)
+		product[i] = 0;
 	if (product == NULL || n1 == NULL || n2 == NULL)
 	{
 		free(product), free(n1), free(n2);
@@ -66,13 +67,13 @@ int *mul(char *num1, char *num2)
 		for (j = 0; j < len1; j++)
 			product[i + j] += n2[i] * n1[j];
 	}
-	for (i = 0; i < maxLen; i++)
+	for (i = 0; i < len1 + len2; i++)
 	{
 		overflow = product[i] / 10;
 		product[i] = product[i] % 10;
 		product[i + 1] = product[i + 1] + overflow;
 	}
-	for (i = maxLen; i >= 0; i--)
+	for (i = len1 + len2; i >= 0; i--)
 	{
 		if (product[i] > 0)
 			break;
