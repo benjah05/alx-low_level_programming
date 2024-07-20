@@ -104,7 +104,7 @@ int main(int argc, char *argv[])
 		for (j = 0; argv[i][j] != '\0'; j++)
 		{
 			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
-				return (0);
+				_printerr();
 		}
 	}
 	mul(n1, n2);
