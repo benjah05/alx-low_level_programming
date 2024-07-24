@@ -23,7 +23,11 @@ int main(int argc, char *argv[])
 		exit(2);
 	}
 	for (i = 0; i < numBytes; i++)
-		printf("%02x ", opcodesFunc[i]);
+	{
+		printf("%02x", opcodesFunc[i]);
+		if (i != numBytes - 1)
+			printf(" ");
+	}
 	printf("\n");
 	return (0);
 }
