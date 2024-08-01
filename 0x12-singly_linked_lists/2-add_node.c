@@ -10,6 +10,11 @@ list_t *add_node(list_t **head, const char *str)
 	list_t *n1 = malloc(sizeof(list_t));
 	unsigned int i = 0;
 
+	if (n1 == NULL)
+	{
+		free(n1);
+		return (NULL);
+	}
 	n1->str = strdup(str);
 	while (str[i] != '\0')
 		i++;
