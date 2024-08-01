@@ -7,6 +7,7 @@ section .text
 main:
 	mov rdi, fmt
 	mov rsi, greetings
-	mov eax, 0
+	xor rax, rax
 	call printf
+	xor rax, rax
 	ret
