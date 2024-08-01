@@ -20,9 +20,14 @@ list_t *add_node_end(list_t **head, const char *str)
 		i++;
 	n1->len = i;
 	n1->next = NULL;
-	headPtr = *head;
-	while (headPtr != NULL)
-		headPtr = headPtr->next;
-	headPtr = n1;
-	return (headPtr);
+	if (*head == NULL)
+		*head = n1;
+	else
+	{
+		headPtr = *head;
+		while (headPtr->next != NULL)
+			headPtr = headPtr->next;
+		headPtr->next = n1;
+	}
+	return (n1);
 }
