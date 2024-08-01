@@ -7,6 +7,5 @@ section .text
 main:
 	mov rdi, fmt
 	mov rsi, greetings
-	mov rax, 0
 	call printf
 	ret
