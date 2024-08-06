@@ -54,6 +54,5 @@ size_t free_listint_safe(listint_t **h)
 		n1 = n2;
 	}
 	free(l);
-	*h = NULL;
 	return (count);
 }
