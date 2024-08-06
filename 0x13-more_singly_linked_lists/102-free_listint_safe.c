@@ -14,10 +14,10 @@ listint_t **newList(listint_t **l, size_t s, listint_t *ptr)
 	x = malloc((s + 1) * sizeof(listint_t *));
 	if (x == NULL)
 	{
-		free(x);
+		free(l);
 		exit(98);
 	}
-	for (i = 0; i < s - 1; i++)
+	for (i = 0; i < s; i++)
 		x[i] = l[i];
 	x[i] = ptr;
 	free(l);
@@ -34,7 +34,7 @@ size_t free_listint_safe(listint_t **h)
 	size_t i, count = 0;
 
 	if (h == NULL || *h == NULL)
-		return (NULL);
+		return (count);
 	n1 = *h;
 	while (n1 != NULL)
 	{
@@ -47,12 +47,13 @@ size_t free_listint_safe(listint_t **h)
 				return (count);
 			}
 		}
-		count++;
 		l = newList(l, count, n1);
+		count++;
 		n2 = n1->next;
 		free(n1);
 		n1 = n2;
 	}
 	free(l);
-	return (NULL);
+	*h = NULL;
+	return (count);
 }

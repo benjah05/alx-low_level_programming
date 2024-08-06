@@ -11,10 +11,10 @@ const listint_t **new_list(const listint_t **l, size_t s, const listint_t *ptr)
 	const listint_t **x;
 	size_t i;
 
-	x = malloc(s * sizeof(listint_t *));
+	x = malloc((s + 1) * sizeof(listint_t *));
 	if (x == NULL)
 	{
-		free(x);
+		free(l);
 		exit(98);
 	}
 	for (i = 0; i < s - 1; i++)
@@ -35,7 +35,7 @@ size_t print_listint_safe(const listint_t *head)
 	size_t i, count = 0;
 
 	if (head == NULL)
-		exit(98);
+		return (count);
 	n1 = head;
 	while (n1 != NULL)
 	{
@@ -55,5 +55,5 @@ size_t print_listint_safe(const listint_t *head)
 		n1 = n1->next;
 	}
 	free(l);
-	exit(98);
+	return (count);
 }
