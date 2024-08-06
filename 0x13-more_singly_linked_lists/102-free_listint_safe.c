@@ -34,7 +34,7 @@ size_t free_listint_safe(listint_t **h)
 	size_t i, count = 0;
 
 	if (h == NULL || *h == NULL)
-		return (count);
+		return (NULL);
 	n1 = *h;
 	while (n1 != NULL)
 	{
@@ -54,5 +54,5 @@ size_t free_listint_safe(listint_t **h)
 		n1 = n2;
 	}
 	free(l);
-	return (count);
+	return (NULL);
 }
