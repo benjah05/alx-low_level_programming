@@ -11,13 +11,13 @@ const listint_t **new_list(const listint_t **l, size_t s, const listint_t *ptr)
 	const listint_t **x;
 	size_t i;
 
-	x = malloc((s + 1) * sizeof(listint_t *));
+	x = malloc(s * sizeof(listint_t *));
 	if (x == NULL)
 	{
 		free(l);
 		exit(98);
 	}
-	for (i = 0; i < s; i++)
+	for (i = 0; i < s - 1; i++)
 		x[i] = l[i];
 	x[i] = ptr;
 	free(l);
