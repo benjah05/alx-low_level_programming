@@ -17,7 +17,7 @@ const listint_t **new_list(const listint_t **l, size_t s, const listint_t *ptr)
 		free(l);
 		exit(98);
 	}
-	for (i = 0; i < s - 1; i++)
+	for (i = 0; i < s; i++)
 		x[i] = l[i];
 	x[i] = ptr;
 	free(l);
@@ -34,8 +34,6 @@ size_t print_listint_safe(const listint_t *head)
 	const listint_t **l = NULL, *n1;
 	size_t i, count = 0;
 
-	if (head == NULL)
-		return (count);
 	n1 = head;
 	while (n1 != NULL)
 	{
