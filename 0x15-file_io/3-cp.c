@@ -26,7 +26,7 @@ void cp_file_from_to(const char *file_from, const char *file_to)
 {
 	int fd_from, fd_to;
 	char buffer[1024];
-	ssize_t readCount, writeCount;
+	unsigned long int readCount, writeCount;
 
 	fd_from = open(file_from, O_RDONLY);
 	if (fd_from == -1)
