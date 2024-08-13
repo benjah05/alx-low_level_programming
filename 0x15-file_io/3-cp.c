@@ -11,7 +11,7 @@
 void cp_file_from_to(const char *file_from, const char *file_to)
 {
 	int fd_from, fd_to;
-	char buffer[1024];
+	char *buffer;
 	unsigned long int readCount, writeCount;
 
 	fd_from = open(file_from, O_RDONLY);
@@ -27,6 +27,7 @@ void cp_file_from_to(const char *file_from, const char *file_to)
 		close(fd_from);
 		exit(99);
 	}
+	buffer = malloc(1024);
 	while ((readCount = read(fd_from, buffer, sizeof(buffer))) != 0)
 	{
 		writeCount = write(fd_to, buffer, readCount);
@@ -48,6 +49,7 @@ void cp_file_from_to(const char *file_from, const char *file_to)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
 		exit(100);
 	}
+	free(buffer);
 }
 /**
  * main - get command-line arguments containing
