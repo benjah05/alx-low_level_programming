@@ -37,7 +37,7 @@ void cp_file_from_to(const char *file_from, const char *file_to)
 	}
 	if (readCount == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
 	if (close(fd_from) == -1)
