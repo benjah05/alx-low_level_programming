@@ -28,16 +28,7 @@ void cp_file_from_to(const char *file_from, const char *file_to)
 		exit(99);
 	}
 	while ((readCount = read(fd_from, buffer, sizeof(buffer))) != 0)
-	{
 		writeCount = write(fd_to, buffer, readCount);
-		if (writeCount != readCount)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", file_to);
-			close(fd_from);
-			close(fd_to);
-			exit(99);
-		}
-	}
 	if (close(fd_from) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
