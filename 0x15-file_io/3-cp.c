@@ -8,7 +8,7 @@
  * @file_to: file to copy content into
  * Return: void, exit upon failure
  */
-void cp_file_from_to(const char *file_from, const char *file_to)
+void cp_file_from_to(char *file_from, char *file_to)
 {
 	int fd_from, fd_to;
 	char buffer[1024];
