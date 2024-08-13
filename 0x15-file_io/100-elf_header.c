@@ -14,6 +14,7 @@
 int main(int argc, char *argv[])
 {
 	int fd;
+	Elf64_Ehdr elf_header;
 
 	if (argc != 2)
 	{
@@ -35,7 +36,7 @@ int main(int argc, char *argv[])
 	if (memcpy(elf_header.e_ident, ELFMAG, SELFMAG) != 0)
 	{
 		dprintf(STDERR_FILENO, "Error: %s is not an ELF file\n", argv[1]);
-		clode(fd);
+		close(fd);
 		exit(98);
 	}
 	close(fd);
