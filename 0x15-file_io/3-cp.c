@@ -34,11 +34,11 @@ void cp_file_from_to(const char *file_from, const char *file_to)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_from);
 			exit(99);
 		}
-		if (readCount < 0)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-			exit(98);
-		}
+	}
+	if (readCount == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		exit(98);
 	}
 	if (close(fd_from) < 0)
 	{
