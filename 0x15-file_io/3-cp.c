@@ -15,7 +15,7 @@ void cp_file_from_to(const char *file_from, const char *file_to)
 	ssize_t readCount, writeCount;
 
 	fd_from = open(file_from, O_RDONLY);
-	if (fd_from < 0)
+	if (fd_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
