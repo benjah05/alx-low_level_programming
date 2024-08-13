@@ -8,11 +8,11 @@
  * @file_to: file to copy content into
  * Return: void, exit upon failure
  */
-void cp_file_from_to(char *file_from, char *file_to)
+void cp_file_from_to(const char *file_from, const char *file_to)
 {
 	int fd_from, fd_to;
 	char buffer[1024];
-	long int readCount, writeCount;
+	ssize_t readCount, writeCount;
 
 	fd_from = open(file_from, O_RDONLY);
 	if (fd_from < 0)
@@ -26,7 +26,7 @@ void cp_file_from_to(char *file_from, char *file_to)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
-	while ((readCount = read(fd_from, buffer, sizeof(buffer))) != 0)
+	while ((readCount = read(fd_from, buffer, sizeof(buffer))) >  0)
 	{
 		writeCount = write(fd_to, buffer, readCount);
 		if (writeCount < 0 || writeCount != readCount)
