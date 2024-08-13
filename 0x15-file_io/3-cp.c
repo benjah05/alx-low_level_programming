@@ -12,7 +12,7 @@ void cp_file_from_to(const char *file_from, const char *file_to)
 {
 	int fd_from, fd_to;
 	char buffer[1024];
-	unsigned long int readCount;
+	long int readCount, writeCount;
 
 	fd_from = open(file_from, O_RDONLY);
 	if (fd_from == -1)
@@ -28,7 +28,16 @@ void cp_file_from_to(const char *file_from, const char *file_to)
 		exit(99);
 	}
 	while ((readCount = read(fd_from, buffer, sizeof(buffer))) != 0)
-		write(fd_to, buffer, readCount);
+	{
+		writeCount = write(fd_to, buffer, readCount);
+		if (writeCount == -1 || writeCount != readCount)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_from);
+			close(fd_from);
+			close(fd_to);
+			exit(99);
+		}
+	}
 	if (close(fd_from) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);

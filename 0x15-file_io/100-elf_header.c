@@ -39,6 +39,14 @@ int main(int argc, char *argv[])
 		close(fd);
 		exit(98);
 	}
+	print_magic(elf_header.e_ident);
+	print_class(elf_header.e_ident[EI_CLASS]);
+	print_data(elf_header.e_ident[EI_DATA]);
+	print_version(elf_header.e_version);
+	print_osabi(elf_header.e_ident);
+	print_abi_version(elf_header.e_ident);
+	print_type(elf_header.e_type);
+	print_entry(elf_header.e_entry);
 	close(fd);
 	return (0);
 }
