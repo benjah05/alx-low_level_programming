@@ -29,13 +29,13 @@ void cp_file_from_to(const char *file_from, const char *file_to)
 	while ((readCount = read(fd_from, buffer, sizeof(buffer))) != 0)
 	{
 		writeCount = write(fd_to, buffer, readCount);
-		if (writeCount == -1 || writeCount != readCount)
+		if (!writeCount || writeCount != readCount)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_from);
 			exit(99);
 		}
 	}
-	if (readCount == -1)
+	if (!readCount)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
