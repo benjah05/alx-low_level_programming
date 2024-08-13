@@ -43,7 +43,7 @@ void cp_file_from_to(const char *file_from, const char *file_to)
 	while ((readCount = read(fd_from, buffer, sizeof(buffer))) > 0)
 	{
 		writeCount = write(fd_to, buffer, readCount);
-		if (readCount != writeCount)
+		if (writeCount != readCount)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", file_to);
 			close(fd_from);
