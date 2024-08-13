@@ -31,13 +31,13 @@ void cp_file_from_to(const char *file_from, const char *file_to)
 		writeCount = write(fd_to, buffer, readCount);
 		if (writeCount < 0 || writeCount != readCount)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_from);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
 		}
 	}
 	if (readCount == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_to);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
 	if (close(fd_from) < 0)
