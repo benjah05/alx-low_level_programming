@@ -18,13 +18,13 @@ void cp_file_from_to(const char *file_from, const char *file_to)
 	if (fd_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(99);
+		exit(98);
 	}
 	fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
 	if (fd_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-		exit(98);
+		exit(99);
 	}
 	while ((readCount = read(fd_from, buffer, sizeof(buffer))) != 0)
 	{
@@ -32,7 +32,7 @@ void cp_file_from_to(const char *file_from, const char *file_to)
 		if (writeCount == -1 || writeCount != readCount)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_from);
-			exit(98);
+			exit(99);
 		}
 	}
 	if (readCount == -1)
