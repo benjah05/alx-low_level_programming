@@ -24,8 +24,9 @@ void handlerr_read(const char *file_from, int fd_from, int fd_to)
  */
 void cp_file_from_to(const char *file_from, const char *file_to)
 {
-	int fd_from, fd_to, readCount, writeCount;
+	int fd_from, fd_to;
 	char buffer[1024];
+	ssize_t readCount, writeCount;
 
 	fd_from = open(file_from, O_RDONLY);
 	if (fd_from == -1)
