@@ -3,6 +3,20 @@
 #include <unistd.h>
 #include <fcntl.h>
 /**
+ * handlerr_read - handle errors when reading a file
+ * @file: file we're reading from
+ * @f1: file descriptor of original file(fd_from)
+ * @f2: file descriptor of copied file(fd_to)
+ * Return: void
+ */
+void handlerr_read(const char *file, int fd1, int fd2)
+{
+	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file);
+	close(fd1);
+	close(fd2);
+	exit(98);
+}
+/**
  * cp_file_from_to - copy one the content of a file into another
  * @file_from: original file
  * @file_to: file to copy content into
@@ -38,6 +52,8 @@ void cp_file_from_to(const char *file_from, const char *file_to)
 			exit(99);
 		}
 	}
+	if (readCount == -1)
+		handlerr_read(file_from, fd_from, fd_to);
 	if (close(fd_from) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
