@@ -37,13 +37,14 @@ int main(int argc, char *argv[])
 		close(fd);
 		exit(98);
 	}
+	printf("ELF Header:\n");
 	print_magic(elf_header.id);
 	print_class(elf_header.id[EI_CLASS]);
 	print_data(elf_header.id[EI_DATA]);
-	print_version(elf_header.version);
+	print_version(elf_header.id[EI_VERSION]);
 	print_osabi(elf_header.id);
 	print_abi_version(elf_header.id);
-	print_type(elf_header.type);
+	print_type(elf_header.type, elf_header.id);
 	print_entry(elf_header.entry);
 	close(fd);
 	return (0);
