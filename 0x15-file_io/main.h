@@ -15,8 +15,6 @@ int create_file(const char *filename, char *text_content);
 int append_text_to_file(const char *filename, char *text_content);
 
 /*----------- ELF task------------- */
-#define MAG "0x7f454c46"
-/* ASCII: "/x7ELF" */
 #define MAG_NO 4
 
 void print_magic(unsigned char *e_ident);

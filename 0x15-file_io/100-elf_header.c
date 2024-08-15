@@ -11,6 +11,7 @@
 int main(int argc, char *argv[])
 {
 	int fd;
+	unsigned char MAG[MAG_NO] = {0x7f, 'E', 'L', 'F'};
 	MyElfHeader elf_header;
 
 	if (argc != 2)
