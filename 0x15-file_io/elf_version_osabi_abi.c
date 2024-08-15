@@ -6,7 +6,7 @@
  */
 void print_version(unsigned int version_no)
 {
-	printf("Version:                           %d (current)\n", version_no);
+	printf("  Version:                           %d (current)\n", version_no);
 }
 /**
  * print_osabi - find the OSABI(OS Application Binary Interface) of an ELF
@@ -15,16 +15,16 @@ void print_version(unsigned int version_no)
  */
 void print_osabi(unsigned char *elf_id)
 {
-	printf("OS/ABI:                            ");
+	printf("  OS/ABI:                            ");
 	switch (elf_id[EI_OSABI])
 	{
-		case 0:
+		case ELFOSABI_SYSV:
 			printf("UNIX - System V\n");
 			break;
-		case 2:
+		case ELFOSABI_NETBSD:
 			printf("UNIX - NetBSD\n");
 			break;
-		case 6:
+		case ELFOSABI_SOLARIS:
 			printf("UNIX - Solaris\n");
 			break;
 		default:
@@ -39,7 +39,7 @@ void print_osabi(unsigned char *elf_id)
  */
 void print_abi_version(unsigned char *elf_id)
 {
-	printf("ABI Version:                       %d\n", elf_id[EI_ABIVERSION]);
+	printf("  ABI Version:                       %d\n", elf_id[EI_ABIVERSION]);
 }
 /**
  * print_type - inddicate ELF type(relocatable, executable, etc.)
@@ -48,7 +48,7 @@ void print_abi_version(unsigned char *elf_id)
  */
 void print_type(unsigned int elf_type)
 {
-	printf("Type:                              ");
+	printf("  Type:                              ");
 	switch (elf_type)
 	{
 		case ET_NONE:

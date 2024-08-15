@@ -9,7 +9,7 @@ void print_magic(unsigned char *elf_id)
 {
 	int i;
 
-	printf("Magic:   ");
+	printf("  Magic:   ");
 	for (i = 0; i < EI_NIDENT; i++)
 		printf("%02x ", elf_id[i]);
 	printf("\n");
@@ -21,8 +21,10 @@ void print_magic(unsigned char *elf_id)
  */
 void print_class(unsigned char bit_class)
 {
-	printf("Class:                             ");
-	if (bit_class == ELFCLASS32)
+	printf("  Class:                             ");
+	if (bit_class == ELFCLASSNONE)
+		printf("None\n");
+	else if (bit_class == ELFCLASS32)
 		printf("ELF32\n");
 	else if (bit_class == ELFCLASS64)
 		printf("ELF64\n");
@@ -36,7 +38,7 @@ void print_class(unsigned char bit_class)
  */
 void print_data(unsigned char data_encoding)
 {
-	printf("Data:                              ");
+	printf("  Data:                              ");
 	if (data_encoding == ELFDATA2LSB)
 		printf("2's complement, little endian\n");
 	else if (data_encoding == ELFDATA2MSB)
