@@ -1,4 +1,4 @@
-#include "elfheader.h"
+#include "main.h"
 /**
  * print_version - find out the version of the ELF file
  * @version_no: the version number of the ELF

@@ -1,4 +1,4 @@
-#include "elfheader.h"
+#include "main.h"
 /**
  * print_magic - print the magic number
  * @elf_id: pointer to ELF header that contain the magic number

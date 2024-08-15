@@ -1,4 +1,6 @@
-#include "elfheader.h"
+#include "main.h"
+#include "elf_magic_class_data.c"
+#include "elf_version_osabi_abi.c"
 /**
  * main - display information contained in the ELF header
  * at the start of an ELF file
