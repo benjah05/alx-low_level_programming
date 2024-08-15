@@ -48,6 +48,7 @@ void print_abi_version(unsigned char *elf_id)
 /**
  * print_type - inddicate ELF type(relocatable, executable, etc.)
  * @elf_type: elf type that represent how the file is processed
+ * @elf_id: elf identification
  * Return: void
  */
 void print_type(unsigned int elf_type, unsigned char *elf_id)
