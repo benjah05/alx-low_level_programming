@@ -46,6 +46,7 @@ int main(int argc, char *argv[])
 	print_abi_version(elf_header.e_ident);
 	print_type(elf_header.e_type, elf_header.e_ident);
 	print_entry(elf_header.e_entry, elf_header.e_ident);
+	printf("0\n");
 	close(fd);
 	return (0);
 }
