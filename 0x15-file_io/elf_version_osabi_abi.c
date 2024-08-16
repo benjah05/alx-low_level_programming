@@ -54,7 +54,7 @@ void print_abi_version(unsigned char *elf_id)
 void print_type(unsigned int elf_type, unsigned char *elf_id)
 {
 	if (elf_id[EI_DATA] == ELFDATA2MSB)
-		elf_type >>= 8;
+		elf_type = (elf_type >> 8) | (elf_type << 8);
 	printf("  Type:                              ");
 	switch (elf_type)
 	{
@@ -81,9 +81,21 @@ void print_type(unsigned int elf_type, unsigned char *elf_id)
 /**
  * print_entry - find the entry point of the ELF file
  * @entry_address: argument that represent where the ELF starts
+ * @elf_id: elf identification
  * Return: void
  */
-void print_entry(unsigned long int entry_address)
+void print_entry(unsigned long int entry_address, unsigned char *elf_id)
 {
-	printf("  Entry point address:               0x%lx\n", entry_address);
+	printf("  Entry point address:               ");
+	if (elf_id[EI_DATA] == ELFDATA2MSB)
+	{
+		entry_address = ((entry_address >> 24) & 0x000000FF) |
+			((entry_address >> 8) & 0x0000FF00) |
+			((entry_address << 8) & 0x00FF0000) |
+			((entry_address << 24) & 0xFF000000);
+	}
+	if (elf_id[EI_CLASS] == ELFCLASS32)
+		printf("%#x\n", (unsigned int)entry_address);
+	else
+		printf("%#lx\n", entry_address);
 }

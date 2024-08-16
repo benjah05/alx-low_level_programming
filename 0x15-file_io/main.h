@@ -24,20 +24,6 @@ void print_version(unsigned int e_version);
 void print_osabi(unsigned char *e_id);
 void print_abi_version(unsigned char *e_id);
 void print_type(unsigned int e_type, unsigned char *e_id);
-void print_entry(unsigned long int e_entry);
-/**
- * struct elf_head - ELF header structure
- * @id: identification bytes
- * @version: ELF version
- * @type: file type
- * @entry: address of the entry point
- */
-typedef struct elf_head
-{
-	unsigned char id[EI_NIDENT];
-	uint16_t version;
-	uint16_t type;
-	uint16_t entry;
-} MyElfHeader;
+void print_entry(unsigned long int e_entry, unsigned char *e_id);
 
 #endif
