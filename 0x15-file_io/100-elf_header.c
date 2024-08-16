@@ -46,10 +46,6 @@ int main(int argc, char *argv[])
 	print_abi_version(elf_header.e_ident);
 	print_type(elf_header.e_type, elf_header.e_ident);
 	print_entry(elf_header.e_entry, elf_header.e_ident);
-	if (close(fd) < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close file %s\n", argv[1]);
-		exit(98);
-	}
+	close(fd);
 	return (0);
 }
