@@ -54,7 +54,7 @@ void print_abi_version(unsigned char *elf_id)
 void print_type(unsigned int elf_type, unsigned char *elf_id)
 {
 	if (elf_id[EI_DATA] == ELFDATA2MSB)
-		elf_type = (elf_type >> 8) | (elf_type << 8);
+		elf_type = (elf_type >> 8);
 	printf("  Type:                              ");
 	switch (elf_type)
 	{
