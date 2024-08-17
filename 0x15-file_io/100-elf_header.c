@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 	print_magic(elf_header.e_ident);
 	print_class(elf_header.e_ident[EI_CLASS]);
 	print_data(elf_header.e_ident[EI_DATA]);
-	print_version(elf_header.e_ident[EI_VERSION]);
+	print_version(elf_header.e_ident);
 	print_osabi(elf_header.e_ident);
 	print_abi_version(elf_header.e_ident);
 	print_type(elf_header.e_type, elf_header.e_ident);

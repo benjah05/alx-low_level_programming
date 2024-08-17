@@ -1,13 +1,13 @@
 #include "main.h"
 /**
  * print_version - find out the version of the ELF file
- * @version_no: the version number of the ELF
+ * @elf_id: identification bytes for the ELF file
  * Return: void
  */
-void print_version(unsigned int version_no)
+void print_version(unsigned char *elf_id)
 {
-	printf("  Version:                           %d", version_no);
-	if (version_no == EV_CURRENT)
+	printf("  Version:                           %d", elf_id[EI_VERSION]);
+	if (elf_id[EI_VERSION] == EV_CURRENT)
 		printf(" (current)\n");
 	else
 		printf("\n");
