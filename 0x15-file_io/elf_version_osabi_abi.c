@@ -33,7 +33,6 @@ void print_osabi(unsigned char *elf_id)
 			break;
 		default:
 			printf("<Unknown : %d>\n", elf_id[EI_OSABI]);
-			break;
 	}
 }
 /**
