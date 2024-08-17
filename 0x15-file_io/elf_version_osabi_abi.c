@@ -73,8 +73,7 @@ void print_type(unsigned int elf_type, unsigned char *elf_id)
 			printf("CORE (Core file)\n");
 			break;
 		default:
-			printf("Unknown type\n");
-			break;
+			printf("<Unknown: %d>\n", elf_type);
 	}
 }
 /**
