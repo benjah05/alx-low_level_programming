@@ -14,7 +14,7 @@ void print_magic(unsigned char *elf_id)
 	{
 		printf("%02x", elf_id[i]);
 		if (i < EI_NIDENT - 1)
-			_putchar(" ");
+			printf(" ");
 	}
 	printf("\n");
 }
