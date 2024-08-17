@@ -87,9 +87,10 @@ void print_entry(unsigned long int entry_address, unsigned char *elf_id)
 	printf("  Entry point address:               ");
 	if (elf_id[EI_DATA] == ELFDATA2MSB)
 	{
-		entry_address = ((entry_address >> 8) & 0xFF00FF00) |
-			((entry_address << 8) & 0x00FF00FF);
-		entry_address = ((entry_address << 16) | (entry_address >> 16));
+		entry_address = ((entry_address >> 24) & 0x000000FF) |
+			((entry_address >> 8) & 0x0000FF00) |
+			((entry_address << 8) & 0x00FF0000) |
+			((entry_address << 24) & 0xFF000000);
 	}
 	if (elf_id[EI_CLASS] == ELFCLASS32)
 		printf("%#x\n", (unsigned int)entry_address);
