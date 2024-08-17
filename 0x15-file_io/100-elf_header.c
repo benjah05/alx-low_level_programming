@@ -48,5 +48,6 @@ int main(int argc, char *argv[])
 	print_entry(elf_header.e_entry, elf_header.e_ident);
 	if (close(fd) < 0)
 		exit(98);
+	free(elf_header);
 	return (0);
 }
