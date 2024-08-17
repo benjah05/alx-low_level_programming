@@ -11,7 +11,11 @@ void print_magic(unsigned char *elf_id)
 
 	printf("  Magic:   ");
 	for (i = 0; i < EI_NIDENT; i++)
-		printf("%02x ", elf_id[i]);
+	{
+		printf("%02x", elf_id[i]);
+		if (i < EI_NIDENT - 1)
+			_putchar(" ");
+	}
 	printf("\n");
 }
 /**
