@@ -1,4 +1,5 @@
 #include "main.h"
+unsigned int EV_CURRENT = 1;
 /**
  * print_version - find out the version of the ELF file
  * @elf_id: identification bytes for the ELF file

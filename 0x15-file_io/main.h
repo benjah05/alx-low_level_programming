@@ -17,7 +17,6 @@ int append_text_to_file(const char *filename, char *text_content);
 
 /*----------- ELF task------------- */
 #define MAG_NO 4
-#define EV_CURRENT 1
 
 void print_magic(unsigned char *e_id);
 void print_class(unsigned char e_class);
