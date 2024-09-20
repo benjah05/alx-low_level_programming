@@ -1,6 +1,4 @@
 #include "lists.h"
-#include "2-add_dnodeint.c"
-#include "3-add_dnodeint_end.c"
 /**
  * insert_dnodeint_at_index - insert a new node at a given position
  * @h: pointer to the first node of dlistint_t list
@@ -16,7 +14,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	curr = *h;
 	newNode = malloc(sizeof(dlistint_t));
 	if (newNode == NULL)
-		return;
+		return (NULL);
 	if (idx == 0)
 	{
 		newNode->n = n;
