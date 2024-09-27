@@ -1,3 +1,2 @@
 #!/bin/bash
-wget -q -O /tmp/gigalib.so "https://raw.githubusercontent.com/benjah05/alx-low_level_programming/master/0x18-dynamic_libraries/gigalib.so"
-export LD_PRELOAD=/tmp/gigalib.so
+export LD_PRELOAD=$PWD/gigalib.so
