@@ -25,6 +25,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	newElt->value = strdup(value);
 	if (newElt->value == NULL)
 	{
+		free(newElt->key);
 		free(newElt);
 		return (0);
 	}
