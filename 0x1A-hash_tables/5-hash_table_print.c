@@ -26,7 +26,7 @@ void hash_table_print(const hash_table_t *ht)
 				if (tmp != NULL)
 					printf(", ");
 			}
-			sep = 1
+			sep = 1;
 		}
 		i++;
 	}
