@@ -22,4 +22,4 @@ fclean:
 
 #re: recompile all source files
 re:
-	oclean all
+	fclean all
