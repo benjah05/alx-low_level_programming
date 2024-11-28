@@ -5,12 +5,9 @@ NAME = school
 RM = rm -f
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-#rules
-.PHONY: all clean oclean fclean re
-
 #all: build executables
 all: $(OBJ)
-	$(CC) $(CFALGS) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -o $(NAME)
 
 #clean: delete all temporary files and the executable
 clean:
@@ -26,4 +23,4 @@ fclean:
 
 #re: recompile all source files
 re:
-	fclean all
+	oclean all
