@@ -5,7 +5,7 @@ NAME = school
 RM = rm -f
 
 #all: build executables
-all: $(OBJ)
+all: m.h $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 #clean: delete all temporary files and the executable
